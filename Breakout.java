@@ -81,22 +81,32 @@ public class Breakout extends GraphicsProgram {
 		vx = rgen.nextDouble(1.0, 3.0);
 		if (rgen.nextBoolean(0.5)) vx = -vy;
 		
-		bricksGameplay();
 		movePaddle();
 		while (ball.getX() < getWidth()){
 			while ( ball.getY() < getHeight()) {
 				moveBall();
 				checkIfInBounds();
-//				checkForCollision();
+//                checkObjectCollision();
 				pause(DELAY);	
 			}
 		}	
 	}
-//	
-//	private GObject checkForCollision{
-//		
-//	}
-	
+
+    private GObject checkObjectCollision(){
+//    	1. Call getElementAt on that location to see whether anything is there. 
+    	double location1;
+    	double location2;
+    	double location3;
+    	double location4;
+//    	2. If the value you get back is not null, then you need look no farther and can take that value as 
+//    	the GObject with which the collision occurred. 
+//    	3. If getElementAt returns null for a particular corner, go on and try the next corner. 
+//    	4. If you get through all four corners without finding a collision, then no collision exists. 
+
+
+
+    }
+
 	private void checkIfInBounds() {
 		
 		/* Y collision right side */
@@ -129,13 +139,7 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 	
-	private void bricksGameplay() {
-		// TODO Add collision between balls and bricks and the gameplay stuff
-
-	}
-	
 	private void createGame() {
-		// TODO Auto-generated method stub
 		createBricks();
 		createPaddle();
 		createBall();
